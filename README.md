@@ -10,6 +10,14 @@
 
 ---
 
+> ### 🌐 Live Demo & Academic Evaluator Access
+> - **Live Deployed Web Application**: **[https://nagavishwa-spidey.github.io/procuresense-cloud/](https://nagavishwa-spidey.github.io/procuresense-cloud/)**
+> - **Localhost Live Instance**: `http://localhost:5173/` (Running locally on port 5173)
+> - **1-Click Evaluator Login**: Click **"Enter as Admin"** or **"Enter as Analyst"** on the login screen to immediately explore the pre-loaded 220+ enterprise procurement transactions, Tukey IQR price outliers, duplicate PO alerts, and budget variance models.
+> - **GitHub Repository**: [https://github.com/nagavishwa-spidey/procuresense-cloud](https://github.com/nagavishwa-spidey/procuresense-cloud)
+
+---
+
 ## 1. Project Overview
 
 **ProcureSense Cloud** is a production-style, cloud-based procurement spend analytics and governance platform designed for finance leaders, chief procurement officers, and departmental budget holders. The platform transforms fragmented purchasing data into actionable intelligence, providing multi-dimensional expenditure tracking, supplier concentration analysis, departmental budget governance, statistical anomaly detection, and automated report generation.
