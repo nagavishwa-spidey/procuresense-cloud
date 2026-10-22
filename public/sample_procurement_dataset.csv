@@ -1,0 +1,11 @@
+PO Number,Purchase Date,Supplier Name,Category,Department,Description,Quantity,Unit Price,Total Amount,Currency,Payment Status,Delivery Status,Contract Ref,Invoice Ref
+PO-99001,2026-09-01,CloudScale Infrastructure,Cloud & Infrastructure,Information Technology,Kubernetes Cluster Compute Nodes,1,14500.00,14500.00,USD,paid,delivered,CNT-CSI-2026,INV-5501
+PO-99002,2026-09-05,Apex Software Systems,SaaS & Software,Engineering,Developer IDE Licenses (50 Seats),50,45.00,2250.00,USD,paid,delivered,CNT-ASS-DEV,INV-5502
+PO-99003,2026-09-12,Workplace Essentials Ltd,Office Supplies & Facilities,Facilities,Standing Desks & Ergonomic Chairs,10,350.00,3500.00,USD,pending,delivered,WKE-FAC-01,INV-5503
+PO-99004,2026-09-18,Precision Tooling & Hardware,Hardware & Equipment,Operations,Calibration Sensors & Test Kit,4,1200.00,4800.00,USD,paid,in_transit,PTH-HDW-09,INV-5504
+PO-99005,2026-09-25,Starlight Media & Creative,Marketing & Advertising,Marketing & Growth,Product Launch Video Production,1,12500.00,12500.00,USD,paid,delivered,MKT-SMC-26,INV-5505
+PO-99006,2026-09-28,Vertex Security Group,Professional Services,Information Technology,Annual Penetration Testing Retainer,1,28000.00,28000.00,USD,paid,delivered,SEC-VSG-88,INV-5506
+PO-99007,2026-10-02,Global Logistics Express,Logistics & Freight,Operations,Cross-Border Expedited Pallet Freight,8,950.00,7600.00,USD,paid,delivered,LGT-2026,INV-5507
+PO-99008,2026-10-05,Elevate Talent Partners,Professional Services,Human Resources,Engineering Leadership Search Retainer,1,14000.00,14000.00,USD,pending,delivered,HR-ETP-RECR,INV-5508
+PO-99009,2026-10-10,NextGen Networks Inc,Cloud & Infrastructure,Engineering,Direct Fiber Cloud Interconnect 10G,1,8500.00,8500.00,USD,paid,delivered,NGN-TELCO,INV-5509
+PO-99010,2026-10-15,DataVault Storage Systems,Hardware & Equipment,Information Technology,Encrypted NAS Backup Expansion Unit,2,4800.00,9600.00,USD,paid,in_transit,DVS-SAN-99,INV-5510
