@@ -116,7 +116,9 @@ export const ProcurementProvider: React.FC<{ children: React.ReactNode }> = ({ c
   });
 
   const [filters, setFilters] = useState<SpendFilter>(DEFAULT_FILTERS);
-  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>('USD');
+  const [selectedCurrency, setSelectedCurrency] = useState<CurrencyCode>(() => {
+    return (localStorage.getItem('procuresense_currency') as CurrencyCode) || 'INR';
+  });
 
   // Sync to local storage
   useEffect(() => {
@@ -209,7 +211,10 @@ export const ProcurementProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   // Actions
   const resetFilters = () => setFilters(DEFAULT_FILTERS);
-  const setCurrency = (curr: CurrencyCode) => setSelectedCurrency(curr);
+  const setCurrency = (curr: CurrencyCode) => {
+    setSelectedCurrency(curr);
+    localStorage.setItem('procuresense_currency', curr);
+  };
 
   const importRecords = async (
     records: Omit<ProcurementTransaction, 'id' | 'organization_id' | 'created_at'>[],
@@ -306,6 +311,8 @@ export const ProcurementProvider: React.FC<{ children: React.ReactNode }> = ({ c
     setBudgets(SAMPLE_BUDGETS);
     setSuppliers(SAMPLE_SUPPLIERS);
     setFilters(DEFAULT_FILTERS);
+    setSelectedCurrency('INR');
+    localStorage.setItem('procuresense_currency', 'INR');
     localStorage.removeItem('procuresense_transactions');
     localStorage.removeItem('procuresense_budgets');
     localStorage.removeItem('procuresense_suppliers');

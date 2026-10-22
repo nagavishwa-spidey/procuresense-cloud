@@ -11,17 +11,18 @@ export function cn(...inputs: ClassValue[]) {
  */
 export function formatCurrency(
   amount: number,
-  currencyCode: CurrencyCode = 'USD',
+  currencyCode: CurrencyCode = 'INR',
   showCents: boolean = false
 ): string {
   if (isNaN(amount) || amount === null || amount === undefined) {
     amount = 0;
   }
 
-  const config = CURRENCIES[currencyCode] || CURRENCIES.USD;
+  const config = CURRENCIES[currencyCode] || CURRENCIES.INR;
+  const locale = currencyCode === 'INR' ? 'en-IN' : 'en-US';
 
   try {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat(locale, {
       style: 'currency',
       currency: config.code,
       minimumFractionDigits: showCents ? 2 : 0,
@@ -29,7 +30,7 @@ export function formatCurrency(
     }).format(amount);
   } catch (e) {
     // Fallback if Intl format fails
-    return `${config.symbol}${amount.toLocaleString('en-US', {
+    return `${config.symbol}${amount.toLocaleString(locale, {
       minimumFractionDigits: showCents ? 2 : 0,
       maximumFractionDigits: showCents ? 2 : 0,
     })}`;

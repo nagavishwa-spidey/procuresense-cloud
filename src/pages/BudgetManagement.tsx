@@ -287,7 +287,7 @@ export const BudgetManagement: React.FC = () => {
               </div>
 
               <div>
-                <label className="block font-medium mb-1">Allocated Amount ($ USD)</label>
+                <label className="block font-medium mb-1">Allocated Amount ({selectedCurrency})</label>
                 <input
                   type="number"
                   required

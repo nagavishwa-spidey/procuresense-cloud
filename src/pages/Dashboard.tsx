@@ -33,6 +33,7 @@ import { MetricCard } from '@/components/common/MetricCard';
 import { FilterBar } from '@/components/common/FilterBar';
 import { formatCurrency, formatPercentage } from '@/lib/utils';
 import { exportProcurementWorkbook } from '@/lib/exporter';
+import { CURRENCIES } from '@/types/procurement';
 
 const CATEGORY_COLORS = [
   '#0d9488', // teal-600
@@ -232,7 +233,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ onOpenImport, onNavigateTa
                   stroke="#64748b"
                   fontSize={11}
                   tickLine={false}
-                  tickFormatter={(val) => `$${(val / 1000).toFixed(0)}k`}
+                  tickFormatter={(val) => {
+                    const symbol = CURRENCIES[selectedCurrency]?.symbol || '₹';
+                    if (selectedCurrency === 'INR') {
+                      if (val >= 10000000) return `${symbol}${(val / 10000000).toFixed(1)}Cr`;
+                      if (val >= 100000) return `${symbol}${(val / 100000).toFixed(1)}L`;
+                    }
+                    return `${symbol}${(val / 1000).toFixed(0)}k`;
+                  }}
                 />
                 <Tooltip
                   contentStyle={{
@@ -242,7 +250,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onOpenImport, onNavigateTa
                     fontSize: '12px',
                     color: '#f8fafc',
                   }}
-                  formatter={(val: any) => [`$${Number(val).toLocaleString()}`, 'Spend']}
+                  formatter={(val: any) => [formatCurrency(Number(val), selectedCurrency), 'Spend']}
                 />
                 <Area
                   type="monotone"
@@ -293,7 +301,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onOpenImport, onNavigateTa
                     fontSize: '12px',
                     color: '#f8fafc',
                   }}
-                  formatter={(val: any) => [`$${Number(val).toLocaleString()}`, 'Spend']}
+                  formatter={(val: any) => [formatCurrency(Number(val), selectedCurrency), 'Spend']}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -357,7 +365,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ onOpenImport, onNavigateTa
                   stroke="#64748b"
                   fontSize={11}
                   tickLine={false}
-                  tickFormatter={(val) => `$${(val / 1000).toFixed(0)}k`}
+                  tickFormatter={(val) => {
+                    const symbol = CURRENCIES[selectedCurrency]?.symbol || '₹';
+                    if (selectedCurrency === 'INR') {
+                      if (val >= 10000000) return `${symbol}${(val / 10000000).toFixed(1)}Cr`;
+                      if (val >= 100000) return `${symbol}${(val / 100000).toFixed(1)}L`;
+                    }
+                    return `${symbol}${(val / 1000).toFixed(0)}k`;
+                  }}
                 />
                 <Tooltip
                   contentStyle={{
@@ -367,7 +382,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onOpenImport, onNavigateTa
                     fontSize: '12px',
                     color: '#f8fafc',
                   }}
-                  formatter={(val: any) => [`$${Number(val).toLocaleString()}`]}
+                  formatter={(val: any) => [formatCurrency(Number(val), selectedCurrency)]}
                 />
                 <Legend verticalAlign="top" height={36} wrapperStyle={{ fontSize: '12px' }} />
                 <Bar dataKey="spend" name="Actual Spend" fill="#0d9488" radius={[4, 4, 0, 0]} />
@@ -407,7 +422,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ onOpenImport, onNavigateTa
                   stroke="#64748b"
                   fontSize={11}
                   tickLine={false}
-                  tickFormatter={(val) => `$${(val / 1000).toFixed(0)}k`}
+                  tickFormatter={(val) => {
+                    const symbol = CURRENCIES[selectedCurrency]?.symbol || '₹';
+                    if (selectedCurrency === 'INR') {
+                      if (val >= 10000000) return `${symbol}${(val / 10000000).toFixed(1)}Cr`;
+                      if (val >= 100000) return `${symbol}${(val / 100000).toFixed(1)}L`;
+                    }
+                    return `${symbol}${(val / 1000).toFixed(0)}k`;
+                  }}
                 />
                 <YAxis
                   type="category"
@@ -425,7 +447,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onOpenImport, onNavigateTa
                     fontSize: '12px',
                     color: '#f8fafc',
                   }}
-                  formatter={(val: any) => [`$${Number(val).toLocaleString()}`, 'Spend']}
+                  formatter={(val: any) => [formatCurrency(Number(val), selectedCurrency), 'Spend']}
                 />
                 <Bar dataKey="spend" fill="#0284c7" radius={[0, 4, 4, 0]} />
               </BarChart>
